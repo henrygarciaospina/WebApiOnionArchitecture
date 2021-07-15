@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnionArchitecture.Core.Mappers\OnionArchitecture.Core.Mappers.csproj" />
+    <ProjectReference Include="..\OnionArchitecture.Core.Repositories.Contracts\OnionArchitecture.Core.Repositories.Contracts.csproj" />
+    <ProjectReference Include="..\OnionArchitecture.Core.Services.Contracts\OnionArchitecture.Core.Services.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
