@@ -22,7 +22,7 @@ namespace OnionArchitecture.Infrastructure.Repositories
             assignment = await _context.Assignments.FindAsync(id);
 
             if (assignment != null) {
-                assignment.Completed = assignment.Completed ? assignment.Completed = false : assignment.Completed = true;
+                assignment.Completed = true;
                 await _context.SaveChangesAsync();
             }
             return assignment;

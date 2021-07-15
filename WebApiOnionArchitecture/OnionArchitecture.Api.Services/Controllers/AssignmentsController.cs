@@ -16,15 +16,10 @@ namespace OnionArchitecture.Api.Services.Controllers
         private readonly ICreateAssignmentService _createAssignmentService;
         private readonly IUpdateAssignmentService _updateAssignmentService;
 
-        private readonly OnionArchitectureContext _context;
-
-        public AssignmentsController(ICreateAssignmentService createAssignmentService, IUpdateAssignmentService updateAssignmentService,
-            OnionArchitectureContext context
-            )
+        public AssignmentsController(ICreateAssignmentService createAssignmentService, IUpdateAssignmentService updateAssignmentService)
         {
             _createAssignmentService = createAssignmentService;
             _updateAssignmentService = updateAssignmentService;
-            _context = context;
         }
 
         [HttpPost]
@@ -37,16 +32,9 @@ namespace OnionArchitecture.Api.Services.Controllers
 
         [HttpPut("{id:int}")]
 
-        public async Task<IActionResult> UpdateStatus(int id, UpdateAssignmentResponseDto response)
+        public async Task<IActionResult> UpdateStatus(int id)
         {
-            var assigment  = await _context.Assignments.FirstOrDefaultAsync(a => a.Id == id);
-        
-            if (assigment == null)
-            {
-                return NotFound($"Id {id} assignment does not exist");
-            }
-
-            response = await _updateAssignmentService.UpdateStatus(id);
+            await _updateAssignmentService.UpdateStatus(id);
             return NoContent();
         }
 
